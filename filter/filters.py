@@ -10,8 +10,8 @@ from filter.fields import RangeField, LookupTypeField
 __all__ = [
     'Filter', 'CharFilter', 'BooleanFilter', 'ChoiceFilter',
     'MultipleChoiceFilter', 'DateFilter', 'DateTimeFilter', 'TimeFilter',
-    'ModelChoiceFilter', 'ModelMultipleChoiceFilter', 'NumberFilter',
-    'RangeFilter', 'DateRangeFilter'
+    'ModelChoiceFilter', 'ModelMultipleChoiceFilter', 'NullBooleanFilter',
+    'NumberFilter', 'RangeFilter', 'DateRangeFilter'
 ]
 
 LOOKUP_TYPES = sorted(QUERY_TERMS.keys())
@@ -65,6 +65,9 @@ class CharFilter(Filter):
     field_class = forms.CharField
 
 class BooleanFilter(Filter):
+    field_class = forms.BooleanField
+
+class NullBooleanFilter(Filter):
     field_class = forms.NullBooleanField
 
     def filter(self, qs, value):

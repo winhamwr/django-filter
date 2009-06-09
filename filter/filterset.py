@@ -7,7 +7,7 @@ from django.utils.text import capfirst
 
 from filter.filters import Filter, CharFilter, BooleanFilter, ChoiceFilter, \
     DateFilter, DateTimeFilter, TimeFilter, ModelChoiceFilter, \
-    ModelMultipleChoiceFilter, NumberFilter
+    ModelMultipleChoiceFilter, NullBooleanFilter, NumberFilter
 
 ORDER_BY_FIELD = 'o'
 
@@ -145,7 +145,7 @@ FILTER_FOR_DBFIELD_DEFAULTS = {
         'filter_class': NumberFilter,
     },
     models.NullBooleanField: {
-        'filter_class': BooleanFilter,
+        'filter_class': NullBooleanFilter,
     },
     models.SlugField: {
         'filter_class': CharFilter,
